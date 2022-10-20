@@ -28,9 +28,6 @@ pkg_postrm() {
 }
 
 src_prepare ()  {
-        eapply -p1 "${FILESDIR}/base.patch"
-	eapply -p1 "${FILESDIR}/amdgpu.patch"
- 	eapply -p1 "${FILESDIR}/config.patch"
-
+        eapply -p1 "${FILESDIR}/*.patch"
         eapply_user
 }
