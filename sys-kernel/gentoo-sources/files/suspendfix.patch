@@ -1,0 +1,35 @@
+diff -ruN a/drivers/gpu/drm/amd/amdgpu/amdgpu_device.c b/drivers/gpu/drm/amd/amdgpu/amdgpu_device.c
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_device.c	2022-10-13 06:49:01.168130302 +0200
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_device.c	2022-10-13 06:49:12.512419167 +0200
+@@ -2059,7 +2059,7 @@
+ 	r = amdgpu_device_ip_suspend_phase1(adev);
+ 	if (r)
+ 		return r;
+-	r = amdgpu_device_ip_suspend_phase2(adev);
++	//r = amdgpu_device_ip_suspend_phase2(adev);
+ 
+ 	return r;
+ }
+@@ -2756,7 +2756,7 @@
+ 
+ 	amdgpu_fence_driver_suspend(adev);
+ 
+-	r = amdgpu_device_ip_suspend_phase2(adev);
++	//r = amdgpu_device_ip_suspend_phase2(adev);
+ 
+ 	/* evict remaining vram memory
+ 	 * This second call to evict vram is to evict the gart page table
+diff -ruN a/drivers/gpu/drm/amd/amdgpu/amdgpu_drv.c b/drivers/gpu/drm/amd/amdgpu/amdgpu_drv.c
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_drv.c	2022-10-13 06:49:01.168130302 +0200
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_drv.c	2022-10-13 06:49:12.512419167 +0200
+@@ -959,8 +959,8 @@
+ 	 * torn down properly on reboot/shutdown.
+ 	 * unfortunately we can't detect certain
+ 	 * hypervisors so just do this all the time.
+-	 */
+-	amdgpu_device_ip_suspend(adev);
++	BROKEN PS4
++	amdgpu_device_ip_suspend(adev); */
+ }
+ 
+ static int amdgpu_pmops_suspend(struct device *dev)
