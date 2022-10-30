@@ -32,6 +32,7 @@ DEPEND="app-arch/zarchive
 	dev-util/vulkan-headers
 	media-libs/cubeb
 	media-libs/libsdl2[joystick,threads]
+	media-libs/glm
 	net-misc/curl
 	sys-libs/zlib
 	x11-libs/wxGTK:3.2-gtk3
